@@ -69,10 +69,6 @@ A comprehensive **IoT and ML-based livestock management system** that integrates
 
 # **6. Technical Implementation**  
 
-- **Backend Services**  
-  - `sensor_data.py` → Collects IMU + GPS readings  
-  - `websocket_server.py` → Broadcasts data to clients  
-
 - **ML Pipeline**  
   - Preprocessing (scaling, normalization)  
   - Feature extraction (acceleration magnitude)  
