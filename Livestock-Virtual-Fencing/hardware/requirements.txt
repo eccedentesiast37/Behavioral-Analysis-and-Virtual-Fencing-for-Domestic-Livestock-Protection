@@ -1,0 +1,5 @@
+smbus2
+pyserial
+websockets
+flask
+flask-sock

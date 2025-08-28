@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cow Location Tracker</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <script src="map.js"></script>
+</head>
+<body>
+  <div class="main-layout">
+    <div id="map"></div>
+    <div class="side-panel">
+      <h1>Cow's Current Location</h1>
+      <p id="coordinates">Loading...</p>
+      <form id="move-form" style="margin-top:10px;">
+        <label>Latitude: <input type="number" step="any" id="input-lat" required></label><br />
+        <label>Longitude: <input type="number" step="any" id="input-lng" required></label><br />
+        <label>Radius (meters): <input type="number" step="any" id="input-radius" required></label><br />
+        <button type="submit">Create Fence</button>
+      </form>
+    </div>
+  </div>
+</body>
+</html>
