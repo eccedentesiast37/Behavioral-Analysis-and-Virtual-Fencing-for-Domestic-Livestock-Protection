@@ -138,7 +138,6 @@ A comprehensive **IoT and ML-based livestock management system** that integrates
 
 - **Hardware**  
   ```bash
-  cd hardware
   pip install -r requirements.txt
   python websocket_server.py
 
