@@ -1,211 +1,143 @@
-1. Project Title
+# **1. Project Title**  
+**Behavioral Analysis and Virtual Fencing for Domestic Livestock Protection**  
 
-Behavioral Analysis and Virtual Fencing for Domestic Livestock Protection
+---
 
-2. Overview
+# **2. Overview**  
+A comprehensive **IoT and ML-based livestock management system** that integrates:  
+- GPS-based **virtual fencing**  
+- IMU-based **behavioral monitoring**  
+- **Anomaly detection** using ML models  
+- Real-time **web dashboard** and **cloud integration (ThingSpeak)**  
 
-A comprehensive IoT and ML-based livestock management system that integrates:
+---
 
-GPS-based virtual fencing
+# **3. System Architecture**  
 
-IMU-based behavioral monitoring
+- **Sensor Layer**: GPS module, MPU6050 IMU, buzzer  
+- **Edge Computing Layer**: Raspberry Pi Pico W for data collection & Wi-Fi transmission  
+- **Cloud/Application Layer**: WebSocket server, ThingSpeak cloud, browser-based dashboard with anomaly detection  
 
-Anomaly detection using ML models
+---
 
-Real-time web dashboard and cloud integration (ThingSpeak)
+# **4. Core Components**  
 
-3. System Architecture
+- **Hardware (hardware/)**  
+  - `pico_firmware/main.py` → Pico W firmware (GPS + IMU data collection)  
+  - `sensor_data.py` → Reads MPU6050 + GPS data  
+  - `websocket_server.py` → Data streaming to clients  
 
-Sensor Layer: GPS module, MPU6050 IMU, buzzer
+- **Software (software/anomaly_detection/)**  
+  - `isolation_forest.py` → Isolation Forest anomaly detection  
+  - `one_class_svm.py` → One-Class SVM model  
+  - `autoencoder.py` → Autoencoder + Hybrid models  
 
-Edge Computing Layer: Raspberry Pi Pico W for data collection & Wi-Fi transmission
+- **Web Interface (web_interface/)**  
+  - `index.html` → Real-time dashboard UI  
+  - `map.js` → Leaflet.js map & geofencing  
+  - `styles.css` → Dashboard styling  
+  - `routes.py` → Flask WebSocket integration  
 
-Cloud/Application Layer: WebSocket server, ThingSpeak cloud, browser-based dashboard with anomaly detection
+---
 
-4. Core Components
+# **5. Key Features**  
 
-Hardware (hardware/)
+- **Virtual Fencing**  
+  - GPS-based geofence boundary detection  
+  - Configurable radius (user input)  
+  - Buzzer alerts on boundary crossing  
 
-pico_firmware/main.py → Pico W firmware (GPS + IMU data collection)
+- **Behavioral Monitoring**  
+  - Real-time IMU data (X, Y, Z accelerations)  
+  - Preprocessing + feature extraction (acceleration magnitude)  
 
-sensor_data.py → Reads MPU6050 + GPS data
+- **Machine Learning Models**  
+  - Isolation Forest → Detects outliers in motion patterns  
+  - One-Class SVM → Classifies abnormal behavior  
+  - Autoencoder (Hybrid) → Deep learning-based anomaly detection  
 
-websocket_server.py → Data streaming to clients
+- **Real-Time Dashboard**  
+  - Leaflet.js map for tracking  
+  - Interactive virtual fence setup  
+  - Plotly.js sensor data visualization  
 
-Software (software/anomaly_detection/)
+- **Cloud Integration**  
+  - ThingSpeak cloud for long-term storage  
+  - CSV export for offline analysis  
 
-isolation_forest.py → Isolation Forest anomaly detection
+---
 
-one_class_svm.py → One-Class SVM model
+# **6. Technical Implementation**  
 
-autoencoder.py → Autoencoder + Hybrid models
+- **Backend Services**  
+  - `sensor_data.py` → Collects IMU + GPS readings  
+  - `websocket_server.py` → Broadcasts data to clients  
 
-Web Interface (web_interface/)
+- **ML Pipeline**  
+  - Preprocessing (scaling, normalization)  
+  - Feature extraction (acceleration magnitude)  
+  - Model inference (IF, OCSVM, Autoencoder)  
+  - Anomaly labeling & visualization  
 
-index.html → Real-time dashboard UI
+- **Web Dashboard**  
+  - Real-time livestock tracking (Leaflet.js)  
+  - User-defined geofencing  
+  - WebSocket-driven live updates  
 
-map.js → Leaflet.js map & geofencing
+---
 
-styles.css → Dashboard styling
+# **7. Data Flow**  
 
-routes.py → Flask WebSocket integration
+- **Data Collection**: IMU (X, Y, Z), GPS (Lat, Lng)  
+- **Processing**: Normalization, feature extraction, ML inference  
+- **Output**:  
+  - WebSocket → Dashboard  
+  - Buzzer → Alerts on geofence breach  
+  - Cloud → ThingSpeak storage  
 
-5. Key Features
+---
 
-Virtual Fencing
+# **8. Security & Reliability**  
 
-GPS-based geofence boundary detection
+- Encrypted WebSocket communication (TLS-ready)  
+- Data validation & error handling  
+- Fault tolerance via periodic sampling  
+- Logging for debugging and monitoring  
 
-Configurable radius (user input)
+---
 
-Buzzer alerts on boundary crossing
+# **9. Testing & Validation**  
 
-Behavioral Monitoring
+- **Geofencing**: GPS simulation tests  
+- **Anomaly detection**: Validated with livestock accelerometer data  
+- **Dashboard**: Stress-tested with real-time WebSocket updates  
 
-Real-time IMU data (X, Y, Z accelerations)
+**Performance Metrics:**  
+- Sampling rate: 5 seconds  
+- Detection latency: < 1 second  
+- Battery runtime: ~10 hours (wearable collar)  
 
-Preprocessing + feature extraction (acceleration magnitude)
+---
 
-Machine Learning Models
+# **10. Future Enhancements**  
 
-Isolation Forest → Detects outliers in motion patterns
+- 🛰 LoRaWAN integration for long-range communication  
+- 📱 Mobile app for farmers (offline + online support)  
+- 🌦 Weather-based predictive alerts  
+- 🐑 Multi-species compatibility (sheep, goats, etc.)  
+- ☁️ Cloud ML pipelines for scaling  
 
-One-Class SVM → Classifies abnormal behavior
+---
 
-Autoencoder (Hybrid) → Deep learning-based anomaly detection
+# **11. Installation & Setup**  
 
-Real-Time Dashboard
+- **Prerequisites**  
+  - Python 3.8+  
+  - Raspberry Pi Pico W with MicroPython  
+  - GPS NEO-6M, MPU6050, Buzzer  
 
-Leaflet.js map for tracking
-
-Interactive virtual fence setup
-
-Plotly.js sensor data visualization
-
-Cloud Integration
-
-ThingSpeak cloud for long-term storage
-
-CSV export for offline analysis
-
-6. Technical Implementation
-
-Backend Services
-
-sensor_data.py → Collects IMU + GPS readings
-
-websocket_server.py → Broadcasts data to clients
-
-ML Pipeline
-
-Preprocessing (scaling, normalization)
-
-Feature extraction (acceleration magnitude)
-
-Model inference (IF, OCSVM, Autoencoder)
-
-Anomaly labeling & visualization
-
-Web Dashboard
-
-Real-time livestock tracking (Leaflet.js)
-
-User-defined geofencing
-
-WebSocket-driven live updates
-
-7. Data Flow
-
-Data Collection: IMU (X, Y, Z), GPS (Lat, Lng)
-
-Processing: Normalization, feature extraction, ML inference
-
-Output:
-
-WebSocket → Dashboard
-
-Buzzer → Alerts on geofence breach
-
-Cloud → ThingSpeak storage
-
-8. Security & Reliability
-
-Encrypted WebSocket communication (TLS-ready)
-
-Data validation & error handling
-
-Fault tolerance via periodic sampling
-
-Logging for debugging and monitoring
-
-9. Testing & Validation
-
-Geofencing: GPS simulation tests
-
-Anomaly detection: Validated with livestock accelerometer data
-
-Dashboard: Stress-tested with real-time WebSocket updates
-
-Performance Metrics:
-
-Sampling rate: 5 seconds
-
-Detection latency: < 1 second
-
-Battery runtime: ~10 hours (wearable collar)
-
-10. Future Enhancements
-
-🛰 LoRaWAN integration for long-range communication
-
-📱 Mobile app for farmers (offline + online support)
-
-🌦 Weather-based predictive alerts
-
-🐑 Multi-species compatibility (sheep, goats, etc.)
-
-☁️ Cloud ML pipelines for scaling
-
-11. Installation & Setup
-
-Prerequisites
-
-Python 3.8+
-
-Raspberry Pi Pico W with MicroPython
-
-GPS NEO-6M, MPU6050, Buzzer
-
-Hardware
-
-cd hardware
-pip install -r requirements.txt
-python websocket_server.py
-
-
-ML Models
-
-cd software/anomaly_detection
-pip install -r requirements.txt
-python isolation_forest.py
-python one_class_svm.py
-python autoencoder.py
-
-
-Web Dashboard
-
-cd web_interface
-python routes.py
-
-
-Open: http://localhost:5000
-
-12. Contributors
-
-Anish Adithya M A
-
-Chiraag Habbu
-
-Daksh Mehta
-
-Lalit Singh Kharayat
+- **Hardware**  
+  ```bash
+  cd hardware
+  pip install -r requirements.txt
+  python websocket_server.py
