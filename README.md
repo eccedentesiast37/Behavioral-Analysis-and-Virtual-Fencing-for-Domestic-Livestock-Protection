@@ -144,6 +144,6 @@ A comprehensive **IoT and ML-based livestock management system** that integrates
 
 # **12. Contributers**  
 
-  - Daksh Mehta 
+  - Daksh Mehta [@DakshMehta10](https://github.com/DakshMehta10)
   - Chiraag Habbu 
   - Anish Adithya M A 
