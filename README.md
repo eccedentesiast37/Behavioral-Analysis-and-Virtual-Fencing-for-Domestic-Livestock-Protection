@@ -121,11 +121,11 @@ A comprehensive **IoT and ML-based livestock management system** that integrates
 
 # **10. Future Enhancements**  
 
-- 🛰 LoRaWAN integration for long-range communication  
-- 📱 Mobile app for farmers (offline + online support)  
-- 🌦 Weather-based predictive alerts  
-- 🐑 Multi-species compatibility (sheep, goats, etc.)  
-- ☁️ Cloud ML pipelines for scaling  
+-  LoRaWAN integration for long-range communication  
+-  Mobile app for farmers (offline + online support)  
+-  Weather-based predictive alerts  
+-  Multi-species compatibility (sheep, goats, etc.)  
+-  Cloud ML pipelines for scaling  
 
 ---
 
