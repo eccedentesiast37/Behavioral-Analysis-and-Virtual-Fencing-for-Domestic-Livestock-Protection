@@ -142,7 +142,7 @@ A comprehensive **IoT and ML-based livestock management system** that integrates
   pip install -r requirements.txt
   python websocket_server.py
 
-# **12. Contibuters**  
+# **12. Contributers**  
 
   - Daksh Mehta 
   - Chiraag Habbu 
